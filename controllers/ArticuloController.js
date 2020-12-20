@@ -13,6 +13,11 @@ module.exports= {
     },
     add : async (req, res, next) => {
         try{
+            const article = await Articulo.findOne({where : { codigo : req.body.codigo}})
+            if (article)
+            {
+                res.status(404).json(['El codigo de este producto ya esta registrado'])  
+            }
             const re = await Articulo.create(req.body)
             res.status(200).json(re)
         }catch(error)

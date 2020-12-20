@@ -75,5 +75,51 @@ module.exports= {
     }
 
 
+},
+update : async (req, res, next) => {
+    try{
+        const user = await Usuario.findOne( { where :  { email : req.body.email } } )
+        if(user){
+            // Evaluar contraseña
+            const contrasenhaValida = bcrypt.compareSync(req.body.password, user.password)
+            if (contrasenhaValida)
+            {
+                const re = await Usuario.update({nombre:req.body.nombre, password: req.body.password},{where: {id: user.id}})
+                res.status(200).json(re)
+            }else {
+            res.status(401).send({ auth: false, tokenReturn: null, reason: "Invalid Password!"})
+            }
+        }else {
+            res.status(404).send({ 'error' : 'Usuario no encontrado' })
+        }
+    }catch(error)
+    {
+        res.status(500).json(['error']) 
+        next(error)
+    }  
+},  
+activate : async (req, res, next) => {
+    try{
+        const re = await Usuario.update({estado: 1},{where: {email: req.body.email}})
+        res.status(200).json(re)
+        
+    }catch(error)
+    {
+        res.status(500).json(['error']) 
+        next(error)
+    }
+    
+},
+deactivate : async (req, res, next) => {
+    try{
+        const re = await Usuario.update({estado: 0},{where: {email: req.body.email}})
+        res.status(200).json(re)
+        
+    }catch(error)
+    {
+        res.status(500).json(['error']) 
+        next(error)
+    }
+    
 }
 }
