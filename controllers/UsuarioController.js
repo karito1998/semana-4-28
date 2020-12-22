@@ -100,7 +100,7 @@ update : async (req, res, next) => {
 },  
 activate : async (req, res, next) => {
     try{
-        const re = await Usuario.update({estado: 1},{where: {email: req.body.email}})
+        const re = await Usuario.update({estado: 1},{where: {id: req.body.id}})
         res.status(200).json(re)
         
     }catch(error)
@@ -112,7 +112,7 @@ activate : async (req, res, next) => {
 },
 deactivate : async (req, res, next) => {
     try{
-        const re = await Usuario.update({estado: 0},{where: {email: req.body.email}})
+        const re = await Usuario.update({estado: 0},{where: {id: req.body.id}})
         res.status(200).json(re)
         
     }catch(error)
