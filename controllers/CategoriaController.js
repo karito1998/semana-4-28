@@ -1,9 +1,9 @@
-const { Categoria } = require('../models/');
+const { Categoria } = require('../models/Index');
 
 module.exports= {
     list : async (req, res, next) => {
         try{
-            const re = await Categoria.findAll () // ({where: {user.id==x}})
+            const re = await categoria.findAll () // ({where: {user.id==x}})
             res.status(200).json(re)
         }catch(error)
         {

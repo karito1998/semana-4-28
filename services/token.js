@@ -1,5 +1,5 @@
 var jwt = require('jsonwebtoken');
-const models = require('../models');
+const models = require('../models/Index');
 
 
 module.exports = {

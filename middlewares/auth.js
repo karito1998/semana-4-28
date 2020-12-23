@@ -10,7 +10,7 @@ module.exports = {
             });
         }
         const response = await tokenService.decode(req.headers.token);
-        if (response.rol == 'Administrador' || response.rol == 'Vendedor' || response.rol == 'Almacenero') {
+        if (response.rol == 'administrador' || response.rol == 'vendedor' || response.rol == 'almacenero') {
             next();
         } else {
             return res.status(403).send({
@@ -32,7 +32,7 @@ module.exports = {
             });
         }
         const response = await tokenService.decode(req.headers.token);
-        if (response.rol == 'Administrador' ) {
+        if (response.rol == 'administrador' ) {
             next();
         } else {
             return res.status(403).send({

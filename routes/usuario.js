@@ -1,16 +1,16 @@
 /* un Ejemplo  de como se veria la ruta listar - modelo del  usuario*/
 const routerx = require('express-promise-router');
-const usuarioController = require('../controllers/UsuarioController');
+const UsuarioController = require('../controllers/UsuarioController');
 const auth = require('../middlewares/auth');
 
 const router = routerx();
 
 
-router.get('/list', usuarioController.list);
-router.post('/login', usuarioController.login);
-router.post('/add', usuarioController.add);
-router.put('/update', usuarioController.update);
-router.put('/activate', usuarioController.activate);
-router.put('/deactivate', usuarioController.deactivate);
+router.get('/list', UsuarioController.list);
+router.post('/login', UsuarioController.login);
+router.post('/add', UsuarioController.add);
+router.put('/update', UsuarioController.update);
+router.put('/activate', UsuarioController.activate);
+router.put('/deactivate', UsuarioController.deactivate);
 
 module.exports = router;

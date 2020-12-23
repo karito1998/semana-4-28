@@ -5,7 +5,7 @@
         "database": "EEIb0l4rJK",
         "host": "remotemysql.com",
         "dialect": "mysql",
-        "port":"3306"
+        "port":"8080"
     },
     "test": {
         "dialect": "sqlite",

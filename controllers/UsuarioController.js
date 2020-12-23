@@ -1,4 +1,4 @@
-const { Usuario } = require('../models/');
+const { Usuario } = require('../models/Index');
 const bcrypt = require('bcryptjs')
 const servicioToken = require('../services/token')
 
