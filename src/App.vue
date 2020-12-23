@@ -67,7 +67,7 @@
           <v-list-item @click="home">
             <v-list-item-action>
               <v-icon>home</v-icon>
-            </v-list-item-action>ñ
+            </v-list-item-action>
             <v-list-item-title>
               Inicio
             </v-list-item-title>
