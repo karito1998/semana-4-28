@@ -23,6 +23,9 @@
 
       <v-card-text class="white--text pt-0">
         Ofrecemos al publico en general la posibilidad de adquirir productos de moda, maquillaje y bienestar, mediante compra virtual con la posibilidad de obtener bonificaciones por su lealtad de compra y realización de una estructura organizada de mercadeo multinivel, generando beneficios económicos para él y para la Tienda  Virtual.
+        Afiliado: por cada referido gana 10 puntos para redimir en premios, 5% de descuento en cada compra
+        Referido: Al usar el código la primera vez obtienes un 50% de descuento en su compra, ¡registrate ya!
+
       </v-card-text>
 
       <v-divider></v-divider>

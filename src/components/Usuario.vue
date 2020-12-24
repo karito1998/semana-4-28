@@ -179,7 +179,8 @@
                 let me=this;
                 let header={"Token" : this.$store.state.token};
                 let configuracion= {headers : header};            
-                axios.get('usuario/list',configuracion).then(function (response){
+                //axios.get('usuario/list',configuracion).then(function (response){
+                axios.get('http://localhost:3000/api/Usuario/list',configuracion).then(function (response){
                     me.usuarios=response.data;
                 }).catch(function(error){
                     console.log(error);
@@ -217,7 +218,8 @@
                     return;
                 }
                 if (this.editedIndex >-1){
-                    axios.put('usuario/update',
+                    axios.put('Usuario/update',
+                    //axios.put('http://localhost:3000/api/Usuario/update',
                     {
                         'id':this.id,
                         'rol':this.rol,
@@ -235,7 +237,8 @@
                     });
                 }else{
                     //Código para guardar
-                    axios.post('usuario/add',
+                    axios.post('Usuario/add',
+                    //axios.post('http://localhost:3000/api/Usuario/add',
                     {
                         'id':this.id,
                         'rol':this.rol,
@@ -281,7 +284,8 @@
                 let header={"Token" : this.$store.state.token};
                 let configuracion= {headers : header};
             
-                axios.put('usuario/activate',{'id':this.adId},configuracion)
+                axios.put('Usuario/activate',{'id':this.adId},configuracion)
+                //axios.put('http://localhost:3000/api/Usuario/activate',{'id':this.adId},configuracion)
                     .then(function(response){
                         me.adModal=0;
                         me.adAccion=0;
@@ -297,7 +301,8 @@
                 let me=this;
                 let header={"Token" : this.$store.state.token};
                 let configuracion= {headers : header};
-                axios.put('usuario/deactivate',{'id':this.adId},configuracion)
+                axios.put('Usuario/deactivate',{'id':this.adId},configuracion)
+                //axios.put('http://localhost:3000/api/Usuario/deactivate',{'id':this.adId},configuracion)
                     .then(function(response){
                         me.adModal=0;
                         me.adAccion=0;

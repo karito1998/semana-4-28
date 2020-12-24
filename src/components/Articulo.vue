@@ -188,18 +188,21 @@
                 let me=this;
                 let header={"Token" : this.$store.state.token};
                 let configuracion= {headers : header};            
-                axios.get('articulo/list',configuracion).then(function (response){
+                axios.get('Articulo/list',configuracion).then(function (response){
+                //axios.get('http://localhost:3000/api/Articulo/list',configuracion).then(function (response){
                     me.articulos=response.data;
                 }).catch(function(error){
                     console.log(error);
                 });
             },
+            
             selectCategoria(){
                 let me=this;
                 let categoriaArray=[];
                 let header={"Token" : this.$store.state.token};
                 let configuracion= {headers : header};            
-                axios.get('categoria/list',configuracion).then(function (response){
+                axios.get('Categoria/list',configuracion).then(function (response){
+                //axios.get('http://localhost:3000/api/Categoria/list',configuracion).then(function (response){    
                     categoriaArray=response.data;
                     categoriaArray.map(function(x){
                         me.categorias.push({text:x.nombre, value:x.id});
@@ -253,7 +256,7 @@
                     return;
                 }
                 if (this.editedIndex >-1){
-                    axios.put('articulo/update',
+                axios.put('Articulo/update',
                     {
                         'id':this.id,
                         'categoriaId':this.categoria,
@@ -273,7 +276,8 @@
                     });
                 }else{
                     //Código para guardar
-                    axios.post('articulo/add',
+                    axios.post('Articulo/add',
+                    //axios.post('http://localhost:3000/api/Articulo/add',
                     {
                         'categoriaId':this.categoria,
                         'codigo':this.codigo,
@@ -322,8 +326,8 @@
                 let me=this;
                 let header={"Token" : this.$store.state.token};
                 let configuracion= {headers : header};
-            
-                axios.put('articulo/activate',{'id':this.adId},configuracion)
+                axios.put('Articulo/activate',{'id':this.adId},configuracion)
+                //axios.put('http://localhost:3000/api/Articulo/activate',{'id':this.adId},configuracion)
                     .then(function(response){
                         me.adModal=0;
                         me.adAccion=0;
@@ -339,7 +343,8 @@
                 let me=this;
                 let header={"Token" : this.$store.state.token};
                 let configuracion= {headers : header};
-                axios.put('articulo/deactivate',{'id':this.adId},configuracion)
+                axios.put('Articulo/deactivate',{'id':this.adId},configuracion)
+                //axios.put('http://localhost:3000/api/Articulo/deactivate',{'id':this.adId},configuracion)
                     .then(function(response){
                         me.adModal=0;
                         me.adAccion=0;
@@ -354,6 +359,7 @@
             close () {
                 this.dialog = false;
             },
+       
              
    
         }

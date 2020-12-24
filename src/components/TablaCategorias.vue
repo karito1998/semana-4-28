@@ -209,7 +209,8 @@ export default {
     methods: {
       list(){
         
-      this.$axios.get('/categoria/list')
+      this.$axios.get('Categoria/list')
+      //this.$axios.get('http://localhost:3000/api/Categoria/list')
         .then( (response) => {
           this.categorias = response.data
           this.cargando = false
@@ -246,9 +247,11 @@ export default {
       },
       deleteItemConfirm () {
         if (this.editedItem.estado === 1) {
-          axios.put("insertar url de la base de datos/api/categoria/deactivate", {id: this.editedItem.id})
+          axios.put("Categoria/deactivate", {id: this.editedItem.id})
+          //axios.put("http://localhost:3000/api/Categoria/deactivate", {id: this.editedItem.id})
         }else {
-          axios.put("insertar url de la base de datos/api/categoria/activate", {id: this.editedItem.id})
+          axios.put("Categoria/activate", {id: this.editedItem.id})
+          //axios.put("http://localhost:3000/api/Categoria/activate", {id: this.editedItem.id})
         }
             this.closeDelete()
       },
@@ -276,7 +279,8 @@ export default {
               descripcion : this.editedItem.descripcion,
               id :  this.editedItem.id
           }
-          axios.put("insertar url de la base de datos/api/categoria/update", objetoBusqueda)
+          axios.put("Categoria/update", objetoBusqueda)
+          //axios.put("http://localhost:3000/api/Categoria/update", objetoBusqueda)
           Object.assign(this.categorias[this.editedIndex], this.editedItem)
         } else {
           let objetoBusqueda = {
@@ -284,7 +288,8 @@ export default {
               descripcion : this.editedItem.descripcion,
               estado : 1
           }
-           axios.post("insertar url de la base de datos/api/categoria/add", objetoBusqueda)
+           axios.post("Categoria/add", objetoBusqueda)
+           //axios.post("http://localhost:3000/api/Categoria/add", objetoBusqueda)
           this.categorias.push(this.editedItem)
         }
         this.close()

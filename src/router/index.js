@@ -24,7 +24,8 @@ const routes = [{
         name: 'usuario',
         component: Usuario,
         meta: {
-            auth: true
+            //auth: true
+            public: true
         }
     },
     {
@@ -42,7 +43,8 @@ const routes = [{
         name: "categoria",
         component: Categoria,
         meta: {
-            auth: true
+            //auth: true
+            public: true
         }
 
     },
@@ -52,7 +54,8 @@ const routes = [{
         name: "articulo",
         component: Articulo,
         meta: {
-            auth: true
+            //auth: true
+            public: true
         }
 
     },

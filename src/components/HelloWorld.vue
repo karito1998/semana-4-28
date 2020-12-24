@@ -1,7 +1,5 @@
 <template>
-    
-
-      <div class="container-fluid">
+       <div class="container-fluid">
           <div class="row justify-content-center mb-5">
               <div v-for="miembro in team" :key="miembro.codigo" class="col mt-5">
                   <div class="card text-white bg-dark">

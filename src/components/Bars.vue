@@ -19,7 +19,7 @@
 
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
-      <v-toolbar-title>CONECTAR SAS</v-toolbar-title>
+      <v-toolbar-title>CompArte SAS</v-toolbar-title>
 
       <v-spacer></v-spacer>
 
@@ -58,9 +58,9 @@
 
       <template v-slot:extension>
         <v-tabs align-with-title>
-          <v-tab>Inicio</v-tab>
-          <v-tab>Productos</v-tab>
-          <v-tab>Contactanos</v-tab>
+          <v-tab><a href="#inicio">Inicio</a></v-tab>
+          <v-tab><a href="#productos">Productos</a></v-tab>
+          <v-tab><a href="#contacto">Contactanos</a></v-tab>
         </v-tabs>
       </template>
     </v-app-bar>

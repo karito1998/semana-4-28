@@ -181,7 +181,8 @@ export default {
     methods: {
       list(){
         
-      this.$axios.get('/usuario/list')
+      this.$axios.get('Usuario/list')
+      //this.$axios.get('http://localhost:3000/api/Usuario/list')
         .then( (response) => {
           this.usuarios = response.data
           this.cargando = false
@@ -210,9 +211,11 @@ export default {
       },
       deleteItemConfirm () {
         if (this.editedItem.estado === 1) {
-          this.$axios.put('/usuario/deactivate', {id: this.editedItem.id})
+          this.$axios.put('Usuario/deactivate', {id: this.editedItem.id})
+          //this.$axios.put('http://localhost:3000/api/Usuario/deactivate', {id: this.editedItem.id})
         }else {
-          this.$axios.put('/usuario/activate', {id: this.editedItem.id})
+          this.$axios.put('Usuario/activate', {id: this.editedItem.id})
+          //this.$axios.put('http://localhost:3000/api/Usuario/activate', {id: this.editedItem.id})
         }
             this.closeDelete()
       },
@@ -240,7 +243,8 @@ export default {
               email : this.editedItem.email,
               id :  this.editedItem.id
           }
-          this.$axios.put('/api/usuario/update', objetoBusqueda)
+          this.$axios.put('Usuario/update', objetoBusqueda)
+          //this.$axios.put('http://localhost:3000/api/Usuario/update', objetoBusqueda)
           Object.assign(this.usuarios[this.editedIndex], this.editedItem)
         } else {
           let objetoBusqueda = {
@@ -250,7 +254,8 @@ export default {
               rol: this.editedItem.rol,
               estado : 1
           }
-           this.$axios.post('/usuario/add', objetoBusqueda)
+           this.$axios.post('Usuario/add', objetoBusqueda)
+           //this.$axios.post('http://localhost:3000/api/Usuario/add', objetoBusqueda)
           this.usuarios.push(this.editedItem)
         }
         this.close()

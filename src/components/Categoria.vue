@@ -158,7 +158,8 @@
                 let me=this;
                 let header={"Token" : this.$store.state.token};
                 let configuracion= {headers : header};            
-                axios.get('categoria/list',configuracion).then(function (response){
+                axios.get('Categoria/list',configuracion).then(function (response){
+                //axios.get('http://localhost:3000/api/Categoria/list',configuracion).then(function (response){
                     me.categorias=response.data;
                 }).catch(function(error){
                     console.log(error);
@@ -195,7 +196,8 @@
                 }
                 if (this.editedIndex >-1){
                     //Código para editar
-                    axios.put('categoria/update',{'id':this.id,'nombre':this.nombre,'descripcion':this.descripcion},configuracion)
+                    axios.put('Categoria/update',{'id':this.id,'nombre':this.nombre,'descripcion':this.descripcion},configuracion)
+                    //axios.put('http://localhost:3000/api/Categoria/update',{'id':this.id,'nombre':this.nombre,'descripcion':this.descripcion},configuracion)
                     .then(function(response){
                         me.limpiar();
                         me.close();
@@ -206,7 +208,8 @@
                     });
                 }else{
                     //Código para guardar
-                    axios.post('categoria/add',{'nombre':this.nombre,'descripcion':this.descripcion},configuracion)
+                    axios.post('Categoria/add',{'nombre':this.nombre,'descripcion':this.descripcion},configuracion)
+                    //axios.post('http://localhost:3000/api/Categoria/add',{'nombre':this.nombre,'descripcion':this.descripcion},configuracion)
                     .then(function(response){
                         me.limpiar();
                         me.close();
@@ -244,7 +247,8 @@
                 let header={"Token" : this.$store.state.token};
                 let configuracion= {headers : header};
             
-                axios.put('categoria/activate',{'id':this.adId},configuracion)
+                axios.put('Categoria/activate',{'id':this.adId},configuracion)
+                // axios.put('http://localhost:3000/api/Categoria/activate',{'id':this.adId},configuracion)
                     .then(function(response){
                         me.adModal=0;
                         me.adAccion=0;
@@ -260,7 +264,8 @@
                 let me=this;
                 let header={"Token" : this.$store.state.token};
                 let configuracion= {headers : header};
-                axios.put('categoria/deactivate',{'id':this.adId},configuracion)
+                axios.put('Categoria/deactivate',{'id':this.adId},configuracion)
+                //axios.put('http://localhost:3000/api/Categoria/deactivate',{'id':this.adId},configuracion)
                     .then(function(response){
                         me.adModal=0;
                         me.adAccion=0;

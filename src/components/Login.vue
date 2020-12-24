@@ -18,7 +18,7 @@
                 </v-card-text>
                 <v-card-actions class="px-3 pb-3">
                     <v-flex text-xs-right>
-                        <v-btn @click="ingresar()" color="primary">Ingresar</v-btn>
+                        <v-btn @click="ingresar()" color=green>Ingresar</v-btn>
                     </v-flex>
                 </v-card-actions>
             </v-card>
@@ -39,25 +39,30 @@ export default {
     },
 
     methods:{
-        ingresar(){
-            axios.post('usuario/login',{email: this.email, password: this.password})
+        async ingresar(){
+            axios.post('Usuario/login',{email: this.email, password: this.password})
+            //axios.post('http://localhost:3000/api/Usuario/login',{email: this.email, password: this.password})
             .then(respuesta =>{
-                 console.log(respuesta.data);
+                console.log(respuesta.data);
                 return respuesta.data;
             })
             .then(data =>{
-                this.$store.dispatch("guardarToken",data.tokenReturn);
+                
+                //this.$store.dispatch("guardarToken",data.tokenReturn);
+                this.auth = true;
                 this.$router.push({name: 'home'});
+                
+                
             })
             .catch(error =>{
-                //console.log(eror);
+                console.log(error);
                 this.errorM=null;
-                console.log(error.response.status);
-                if (error.response.status==401){
+                console.log(response.status);
+                if (response.status==401){
                     console.log('hola');
                     this.errorM='credenciales son incorrectas.';
                 } 
-                else if (error.response.status==404){
+                else if (response.status==404){
                     this.errorM='el usuario no existe';
                 }
                 else{

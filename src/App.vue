@@ -5,12 +5,12 @@
         <a class="navbar-brand " href="# ">
             <img src="./assets/infinite.png" width="30 " height="30
             
-               " class="d-inline-block align-top " alt=" " loading="lazy "> Conectar S.A.S
+               " class="d-inline-block align-top " alt=" " loading="lazy "> CompArte S.A.S
         </a>
         <div class="collapse navbar-collapse justify-content-end " id="navbarNav ">
             <ul class="navbar-nav ">
                 <li class="nav-item active ">
-                    <a class="nav-link " v-on:click="ingresar" href="# ">Sistema <span class="sr-only ">(current)</span></a>
+                    <a class="nav-link " v-on:click="ingresar" href="# ">Ingreso <span class="sr-only ">(current)</span></a>
                 </li>
             </ul>
         </div>
@@ -19,13 +19,15 @@
     <div> <Bars/></div>
     <div><Carousel/></div>
     <br>
-  <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div class="col">
-        <card title="Hola"></card> 
-      </div>
+  <div class="row justify-content-center mb-5">
+     
+        <card title="Reviews"></card> 
+    
+      <!--
       <div class="col">
         <Card/>
       </div>
+      
       <div class="col">
         <Card/>
       </div>
@@ -38,18 +40,22 @@
       <div class="col">
         <Card/>
       </div>
+      -->
   </div>
 
-    <div class="row row-cols-1 row-cols-md-3 g-4">
+ <div class="row justify-content-center mb-5">
+   <!-- <div class="row row-cols-1 row-cols-md-3 g-4">-->
+      <div class="col">
+        <Divider/>
+      </div>
+      <!--
       <div class="col">
         <Divider/>
       </div>
       <div class="col">
         <Divider/>
       </div>
-      <div class="col">
-        <Divider/>
-      </div>
+      -->
     </div>
 
   <Footer/>
@@ -95,7 +101,7 @@
             </v-list-item>
             <v-list-item :to="{name: 'articulo'}">
               <v-list-item-action>
-                <v-icon>table_chart</v-icon>
+                <v-icon>mdi-cart</v-icon>
               </v-list-item-action>
               <v-list-item-content>
                 <v-list-item-title>
@@ -108,13 +114,13 @@
             <v-list-item slot="activator">
               <v-list-item-content>
                 <v-list-item-title>
-                  Accesos
+                  Administracion
                 </v-list-item-title>
               </v-list-item-content>
             </v-list-item>
             <v-list-item :to="{name: 'usuario'}">
               <v-list-item-action>
-                <v-icon>table_chart</v-icon>
+                <v-icon>mdi-account-multiple-outline</v-icon>
               </v-list-item-action>
               <v-list-item-content>
                 <v-list-item-title>
@@ -138,7 +144,7 @@
         class="ml-0 pl-3"
       >
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-        <span class="hidden-sm-and-down">Sistema</span>
+        <span class="hidden-sm-and-down">Menú</span>
       </v-toolbar-title>      
       <v-spacer></v-spacer>
       <v-btn @click="salir()" icon v-if="logueado">
